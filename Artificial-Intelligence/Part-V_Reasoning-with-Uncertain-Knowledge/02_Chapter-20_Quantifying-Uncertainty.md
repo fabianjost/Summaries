@@ -136,7 +136,7 @@ $$\bf P(Z_1|Z_2,Z) = P(Z_1|Z)$$
 4. Exploit conditional independence: Instead of $P(X_i|X_{i-1}, ..., X_1)$, we can use $P(X_i|Parents(X_i))$.
 
 
-### Naive Bayes Models#
+### Naive Bayes Models
 A Bayesian network in which a single cause directly influences a number if effects, all of which are cinditionally independent, given the cause is called a **naive Bayes model** or **Bayesian classifier**.
 In a naive Bayes model the full joint probability distribution can be written as:
 $$P(cause\ |\ effect) = P(cause) · \prod_i\ P(effect_i\ |\ cause)$$
