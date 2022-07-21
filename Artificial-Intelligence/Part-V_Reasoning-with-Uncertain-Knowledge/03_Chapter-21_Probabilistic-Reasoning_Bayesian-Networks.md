@@ -78,5 +78,5 @@ P(B\ |\ j,m) &= \alpha\ P(B)\ ·\ \sum_{v_E} P(v_E)\ \sum_{v_A} P(v_A\ |\ B, v_E
 ### The Complexity of Exact Inference
 - A graph G is called **singly connected**, or a **polytree** (otherwise **multiply connected**), if there is at most one **undirected path** between any two nodes in G.
 - On singly connected Bayesian networks, variable elimination runs in polynomial time.
-- For mulitply connected Bayesian networks, probabilistic inference is $\# P$-hard. ($\# P$ is harder than $NP,\ NP \subseteq \# P$) -> if need be we can approximate
+- For multiply connected Bayesian networks, probabilistic inference is $\# P$-hard. ($\# P$ is harder than $NP,\ NP \subseteq \# P$) -> if need be we can approximate
 

@@ -87,7 +87,7 @@ $$\begin{align}
 	  \end{align}$$
    2. Step: Assuming placeholder $\alpha\ :=\ 1/P(toothache)$:
 $$\begin{align}
-	  &P(cavity\ |\ tootache) = \alpha\ P(cavity \land toothache = \alpha\ 0.12\\[2ex]
+	  &P(cavity\ |\ tootache) = \alpha\ P(cavity \land toothache) = \alpha\ 0.12\\[2ex]
 	  &P(\neg cavity\ |\ toothache) = \alpha\ P(\neg cavity \land toothache) = \alpha\ 0.08
 	  \end{align}$$
    3. Step: Toothache can be viewed as true, iff $A_1 = P(cavity \land toothache) \cup  A_2 = P(\neg cavity \land toothache)$. We view $A_1\ vs.\ A_2$ as the "relative weights of $P(cavity)$ vs. $P(\neg cavity)$ within toothache" and then normalize their summed-up weight to 1:
