@@ -21,7 +21,7 @@ First-order Markov properties are not exactly true in the real world therefore w
 
 ### Filtering
 $$\begin{align}
-&\bf P(X_{t+1}\ |\ e_{1:t+1}) = \alpha\ P(e_{t+1}\ |\ X_{t+1})\ ·\ \sum_{x_t} P(X_{t+1}\ |\ x_t)\ ·\ P(x_t\ e_{1:t})\\
+&\bf P(X_{t+1}\ |\ e_{1:t+1}) = \alpha\ P(e_{t+1}\ |\ X_{t+1})\ ·\ \sum_{x_t} P(X_{t+1}\ |\ x_t)\ ·\ P(x_t\ |\ e_{1:t})\\
 &e.g.\\[1.5ex]
 &P(R_1\ |\ u_1) = \alpha\ P(u_1\ |\ R_1)\ ·\ P(R_1) = \alpha\ \langle 0.9,0.2\rangle \langle0.5,0.5\rangle = \alpha\ \langle0.45,0.1\rangle \approx \langle0.818,0.182\rangle\\[1ex]
 &with\ \alpha = \frac{1}{0.45 + 0.1}

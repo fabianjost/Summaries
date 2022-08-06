@@ -9,9 +9,7 @@ A **rational agent** chooses the action with the **maximum expected utility**:
   
 In this chapter we will focus on all the basic machinery at use in **Bayesian networks**.  
 In the next chapter we will see what they are and how to build and use them.  
-
-
-
+<br>
 ## 20.1 Unconditional Probabilities
 - $P(X = x)$ denotes the prior or **unconditional probability**, that $X$ has value $x$ in the **absence of any other information**.
 - *uppercase "$X$"* stands for a random variable and *lowercase "$x$"* for one of its values.
@@ -29,9 +27,7 @@ Given *random variables* ${X_1, ..., X_n}$ with *domains* $D_1, ..., D_n$, the *
 
 e.g. $P(cavity \land toothache) = 0.12$ is the probability that some given person has both a cavity and a toothache.  
 *Instead of $P(a \land b)$ we often write $P(a,b)$.*
-
-
-
+<br>
 ## 20.2 Conditional Probabilities
 - Probabilities model our belief, thus they depend on our knowledge. Therefore in the presence of additional knowledge, we can no longer use *unconditional probabilities*.
   e.g. The probability of cavity increases when the doctor is informed that the patient has toothache.
@@ -41,9 +37,7 @@ $$\bf P(a|b) := \frac{P(a \land b)}{P(b)}$$
   
 **Conditional Probability Distributions:**  
 $\textbf{P} (X|Y)$ (with boldface **P**) is the table of all conditional probabilities similar to *full joint diustributions* of *unconditional probabilities*.
-
-
-
+<br>
 ## 20.3 Independence
 It is not a good idea to use *full joint distributions*, because given $n$ random variables with $k$ values each, the *full joint distribution* contains $k^n$ probabilities.  
 Given independent events a and b where $P(b) \not= 0$, we have $P(a|b) = P(a)$:
@@ -52,9 +46,7 @@ $$\bf P(a|b) = \frac{P(a \land b)}{P(b)} = P(a)$$
 
 Independence can be exploited to represent the *full joint probability distribution* more compactly.  
 Sometimes variables are only independent under certain conditions: *conditional independence*.
-
-
-
+<br>
 ## 20.4 Basic Probabilistic Reasoning Methods
 
 ### Product Rule
@@ -68,6 +60,7 @@ $$\begin{align}
 & = P(toothache | cavity, \neg brush) · P(cavity, \neg brush) = \\[1ex]
 & = P(toothache | cavity, \neg brush) · P(cavity | \neg brush) · P(\neg brush)
 \end{align}$$
+<br>
 
 ### Marginalization
   Given sets $\bf X$ and $\bf Y$ of *random variables* we have:  $$\begin{align}
@@ -77,7 +70,7 @@ $$\begin{align}
   &P(cavity) = P(cavity, toothache) + P(cavity, \neg toothache)\\
   &P(\neg cavity) = P(\neg cavity, toothache) + P(\neg cavity, \neg toothache)
   \end{align}$$
-
+<br>
 ### Normalization
    Problem: We know $P(cavity \land toothache)$ bit don't know $P(toothache)$
    1. Step: Case distinction over the values of Cavity:
@@ -94,14 +87,13 @@ $$\begin{align}
 $$ 1 = \alpha\ (0.12 + 0.08) \leadsto \alpha = \frac{1}{0.12 + 0.08} = \frac{1}{0.2} = 5$$
 		-> $\alpha$ is a **normalization constant** scaling the sum of the relative weights to 1.
 
+<br>
 
 ### Computation Rule: Normalization + Marginalization
    Given "query variable" $X$, "observed event" $e$, and "hidden variables" set $Y$:
    $$\bf P(X|e) = \alpha\ · P(X,e) = \alpha\ · \sum_{y\ \Large \epsilon\ \normalsize Y} P(X,e,y)$$
    -> Second of the four basic techniques in **Bayesian networks**.
-
-
-
+<br>
 ## 20.5 Bayes' Rule
 Given propositions $A$ and $B$ where $P(a) \not= 0$ and $P(b) \not= 0$:
 $$P(a|b) = \frac{P(b|a) · P(a)}{P(b)}$$
@@ -115,17 +107,14 @@ $$P(a|b) = \frac{P(b|a) · P(a)}{P(b)}$$
 e.g. If there is an cavity epidemic the probability of $P(toothache|cavity)$ stays the same, but the probability of $P(cavity|toothache)$ changes.
 
 -> Bayes' rule allows to perform diagnosis (oberserving a symptom, what is the cause?) based on prio probabilities and causal dependencies.
-
-
-
+<br>
 ## 20.6 Conditional Independence
 Given sets of random variables $Z_1, Z_2,\ and\ Z$, we say that $Z_1\ and Z_2$ are **conditionally independent** given $Z$ if:
 $$\bf P(Z_1, Z_2|Z) = P(Z_1|Z) · P(Z_2|Z)$$
 If $Z_1\ and\ Z_2$ are **conditionally independent** given $Z$, then:
 $$\bf P(Z_1|Z_2,Z) = P(Z_1|Z)$$
 -> In the presence of **conditional independence**, we can drop variables from the right-hand side of conditional probabilities.
-
-
+<br>
 ### Exploiting Conditional Independence
 1. Graph captures variable dependencies:
    -> Given evidence $e$, we want to know $P(X|e)$
@@ -134,11 +123,10 @@ $$\bf P(Z_1|Z_2,Z) = P(Z_1|Z)$$
 3. Chain rule: Order $X_1, ..., X_n$ consistently with dependency graph.
 	$P(X_1, ..., X_n) = P(X_n|X_{n-1}, ..., X_1) · P(X_{n-1}|X_{n-2}, ..., X_1) · ... · P(X_1)$ 
 4. Exploit conditional independence: Instead of $P(X_i|X_{i-1}, ..., X_1)$, we can use $P(X_i|Parents(X_i))$.
-
-
+<br>
 ### Naive Bayes Models
-A Bayesian network in which a single cause directly influences a number if effects, all of which are cinditionally independent, given the cause is called a **naive Bayes model** or **Bayesian classifier**.
+A Bayesian network in which a single cause directly influences a number if effects, all of which are conditionally independent, given the cause is called a **naive Bayes model** or **Bayesian classifier**.
 In a naive Bayes model the full joint probability distribution can be written as:
-$$P(cause\ |\ effect) = P(cause) · \prod_i\ P(effect_i\ |\ cause)$$
+$$P(cause\ |\ effect_1,…,effect_n) = P(cause) · \prod_i\ P(effect_i\ |\ cause)$$
 This kind of model is called naive since it is often used as a simplifying model if the effects are not conditionally independent.
 In Practice, naive Bayes models can work surprisingly well, even when the conditional independence assumption is not true.
