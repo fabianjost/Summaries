@@ -55,7 +55,7 @@ Maximize this wrt. $\theta$
 <br>
 ## 26.4 Naive Bayes Models
 **Recap:** A Bayesian network in which a single cause directly influences a number of effects, all of which are conditionally independent, given the cause is called a naive Bayes model or Bayesian classifier.
-For more details about naive Bayes model see chapter [20.6 Conditional Independence](../Part-v_Reasoning-with-Uncertain-Knowledge/02_Chapter-20_Quantifying-Uncertainty#Naive%20Bayes%20Models)  
+For more details about naive Bayes model see chapter [20.6 Conditional Independence](01_Chapter-20_Quantifying-Uncertainty.md#Naive%20Bayes%20Models)  
 
 Naive Bayes models are probably the most commonly used Bayesian network models in machine learning:
 - The "class" variable $C$ (which is to be predicted) is the root  
